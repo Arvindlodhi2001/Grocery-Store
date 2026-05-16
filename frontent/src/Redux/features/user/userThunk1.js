@@ -23,6 +23,7 @@ export const signInUser = createAsyncThunk(
   "auth/signInUser",
   async (credentials, { rejectWithValue }) => {
     try {
+      console.log(`${API_URL}/signIn`, credentials);
       const response = await axios.post(`${API_URL}/signIn`, credentials);
       Toastify("success", "User  Signed In successfully");
       return response.data;

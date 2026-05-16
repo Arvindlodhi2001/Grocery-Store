@@ -6,6 +6,8 @@ import bcrypt from "bcrypt";
 
 const signUp = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
+  console.log("Hello I m hitt");
+
   console.log("Received Data:", { name, email, password });
 
   // ✅ Validate Input

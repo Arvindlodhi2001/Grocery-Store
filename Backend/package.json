@@ -1,11 +1,12 @@
 {
   "name": "Grocery backend",
   "version": "1.0.0",
-  "description": "In this project youtube play clone All Advance lavel code and manage to easy ",
+  "description": "In this project YouTube play clone All Advance level code and manage easy",
   "type": "module",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+    "dev": "nodemon -r dotenv/config src/index.js",
+    "start": "node -r dotenv/config src/index.js"
   },
   "author": "Arvind Lodhi",
   "license": "ISC",
@@ -17,7 +18,6 @@
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.5.1",
     "cookie-parser": "^1.4.7",
-    "cookies-parser": "^1.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.18.2",

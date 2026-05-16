@@ -1,15 +1,16 @@
-# Backend/Dockerfile
+FROM node:22-alpine
 
-FROM node:18
+RUN apk add --no-cache bind-tools
 
 WORKDIR /app
 
 COPY package*.json ./
 
-# ⬅️ Install nodemon (dev dependency)
 RUN npm install --include=dev
 
 COPY . .
+
+COPY .env .env  
 
 EXPOSE 5000
 

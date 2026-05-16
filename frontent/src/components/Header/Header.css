@@ -1,182 +1,373 @@
-header{
-    width: 97%;
-    height: auto;
-    margin: auto;
-    padding: 27px 0px;
+header {
+  width: 97%;
+  height: auto;
+  margin: auto;
+  padding: 27px 0px;
 }
 
-.container-fluid{
-    padding: 0px 0px;
+.container-fluid {
+  padding: 0px 0px;
 }
 
-header .HeaderSearch{
-    width: 100%;
-    height: 55px;
-    border: 2px solid #7dcb97;
-    padding: 10px 20px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+header .HeaderSearch {
+  width: 100%;
+  height: 55px;
+  border: 2px solid #7dcb97;
+  padding: 10px 20px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-
-
-header .HeaderSearch .SelectDrop{
-    /* width: 117%; */
-    width: 155px;
-    font-size: 16px;
-    font-weight: 500;
-    position: relative;
-    cursor: pointer;
-
+header .HeaderSearch .SelectDrop {
+  width: 155px;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
 }
 
-header .HeaderSearch .SelectDrop::after{
-    content: "";
-    width: 1.5px;
-    height: 26px;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 9px;
-    right: 0px;
+header .HeaderSearch .SelectDrop::after {
+  content: "";
+  width: 1.5px;
+  height: 26px;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 9px;
+  right: 0px;
 }
 
-header .HeaderSearch .search{
-    width: 80%;
-    padding-left: 30px;
-    position: relative;
+header .HeaderSearch .search {
+  width: 80%;
+  padding-left: 30px;
+  position: relative;
 }
 
-header .HeaderSearch .search input{
-    width: 100%;
-    height: 30px;
-    border: 0px;
-    outline: none !important ;
-    font-size: 16px;
-    cursor: pointer;
-
-
+header .HeaderSearch .search input {
+  width: 100%;
+  height: 30px;
+  border: 0px;
+  outline: none !important;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-header .HeaderSearch .searchIcon{
-    font-size: 27px;
-    position: absolute;
-    right: 30px;
-    top: 2px;
-    cursor: pointer;
-    opacity: 0.7;
+header .HeaderSearch .searchIcon {
+  font-size: 27px;
+  position: absolute;
+  right: 30px;
+  top: 2px;
+  cursor: pointer;
+  opacity: 0.7;
 }
 
-header .HeaderSearch .searchIconAfter{
-    font-size: 28px;
-    position: absolute;
-    right: 30px;
-    top: 2px;
-    cursor: pointer;
-    opacity: 0.7;
-    color: #43a764 ;
-
+header .HeaderSearch .searchIconAfter {
+  font-size: 28px;
+  position: absolute;
+  right: 30px;
+  top: 2px;
+  cursor: pointer;
+  opacity: 0.7;
+  color: #43a764;
 }
 
-header .HeaderSearch .VoiceIcon{
-font-size: 28px;
-position: absolute;
-right: 0px;
-top: 2px;
-cursor: pointer;
-opacity: 0.7;
-color: #43a764 ;
-
+header .HeaderSearch .VoiceIcon {
+  font-size: 28px;
+  position: absolute;
+  right: 0px;
+  top: 2px;
+  cursor: pointer;
+  opacity: 0.7;
+  color: #43a764;
 }
-
 
 header .countryWrapper .SelectDrop {
-    width: 200px;
-    /* border: 1px solid #7dcb97; */
-    color: #7dcb97;
-    /* border: rgba(43, 42, 42, 0.2); */
-    font-weight: 500;
-    font-size: 16px;
-    height: 50px;
-    top: 0px;
-    padding: 3px;
-    
-    /* Corrected box-shadow property */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* For older WebKit browsers */
+  width: 200px;
+  color: #7dcb97;
+  font-weight: 500;
+  font-size: 16px;
+  height: 50px;
+  top: 0px;
+  padding: 3px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+header .headerTabs {
+  left: 20px;
+  right: 0px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 15px;
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+}
+
+header .headerTabs img {
+  width: 31px;
+  height: 31px;
+  position: relative;
+}
+
+header .headerTabs .bage {
+  background-color: #73cf92;
+  color: white;
+  position: absolute;
+  font-size: 13px;
+  top: -10px;
+  left: 22px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 500;
+  z-index: 99;
+}
+
+header .headerTabs .InerListItem {
+  display: grid;
+  text-align: center;
+  align-items: center;
+}
+
+.headerTabs .dropDownMenu {
+  position: absolute;
+  z-index: 100;
+  padding: 7px;
+  width: 230px;
+  background-color: #fff;
+  right: 40px;
+  height: auto;
+  align-items: center !important;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.headerTabs .dropDownMenu .UserDropDownList {
+  width: 100%;
+  list-style: none !important;
+  padding: 4px 0px;
+  margin-left: 0px !important;
+  left: 0px !important;
+}
+
+.headerTabs .dropDownMenu .UserDropDownList button {
+  width: 100% !important;
+  text-align: left !important;
+  justify-content: flex-start;
+  text-transform: capitalize;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  header {
+    padding: 15px 0px;
   }
-  header .headerTabs {
-    left: 20px;
-    right: 0px;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    font-size: 15px;
-    cursor: pointer;
-    position: relative;
-    font-weight: 500; 
+
+  header .HeaderSearch .SelectDrop {
+    width: 130px;
+    font-size: 14px;
   }
-  
+
+  header .countryWrapper .SelectDrop {
+    width: 150px;
+    font-size: 14px;
+  }
+
+  header .HeaderSearch {
+    height: 45px;
+    padding: 8px 15px;
+  }
+
+  header .HeaderSearch .search {
+    width: 75%;
+  }
+
   header .headerTabs img {
-    width: 31px;
-    height: 31px;
-    position: relative;
+    width: 28px;
+    height: 28px;
   }
-  
-  header .headerTabs .bage {
-    background-color: #73cf92;
-    color: white;
-    position: absolute;
+}
+
+@media (max-width: 768px) {
+  header {
+    width: 100%;
+    padding: 12px 0px;
+  }
+
+  header .HeaderSearch {
+    height: 45px;
+    padding: 8px 12px;
+  }
+
+  header .HeaderSearch .SelectDrop {
+    width: 110px;
+    font-size: 12px;
+  }
+
+  header .HeaderSearch .search {
+    width: 70%;
+    padding-left: 15px;
+  }
+
+  header .HeaderSearch .searchIcon,
+  header .HeaderSearch .searchIconAfter,
+  header .HeaderSearch .VoiceIcon {
+    font-size: 20px;
+    right: 15px;
+  }
+
+  header .countryWrapper .SelectDrop {
+    width: 120px;
+    font-size: 12px;
+    height: 40px;
+  }
+
+  header .headerTabs {
     font-size: 13px;
-    top: -10px;
-    left: 22px;
+  }
+
+  header .headerTabs img {
+    width: 24px;
+    height: 24px;
+  }
+
+  header .headerTabs .bage {
+    font-size: 11px;
+    width: 18px;
+    height: 18px;
+    left: 18px;
+  }
+
+  .headerTabs .dropDownMenu {
+    width: 200px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    padding: 10px 5px;
+    width: 100%;
+  }
+
+  header img {
+    max-width: 100px;
+    height: auto;
+  }
+
+  header .HeaderSearch {
+    height: 40px;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+  }
+
+  header .HeaderSearch .SelectDrop {
+    width: 90px;
+    font-size: 11px;
+    display: none;
+  }
+
+  header .HeaderSearch .search {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  header .HeaderSearch .search input {
+    font-size: 13px;
+    height: 28px;
+  }
+
+  header .HeaderSearch .searchIcon,
+  header .HeaderSearch .searchIconAfter,
+  header .HeaderSearch .VoiceIcon {
+    font-size: 18px;
+    right: 10px;
+  }
+
+  header .countryWrapper {
+    display: none;
+  }
+
+  header .countryWrapper .SelectDrop {
+    width: 100%;
+  }
+
+  header .headerTabs {
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  header .headerTabs li {
+    flex: 1;
+  }
+
+  header .headerTabs img {
     width: 20px;
     height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; /* Ensure the badge is circular */
-    font-weight: 500;
-    z-index: 99;
   }
 
-  header .headerTabs .InerListItem{
-    display: grid;
-    text-align: center;
-    align-items: center;
+  header .headerTabs div span {
+    font-size: 10px;
+    display: block;
+    margin-top: 2px;
   }
 
-  
-  /* User Account Drop Down menu Start */
-
-  .headerTabs  .dropDownMenu {
-    position: absolute;
-    z-index: 100;
-    padding: 7px;
-    width: 230px;
-    background-color: #fff;
-    right: 40px;
-    height: auto;
-    align-items: center !important;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);    
+  header .headerTabs .bage {
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    left: 16px;
+    top: -8px;
   }
 
-  .headerTabs  .dropDownMenu .UserDropDownList
-  {
-    width: 100%;
-    list-style: none !important;
-    padding:  4px 0px;
-    margin-left: 0px  !important;
-    left: 0px !important;
-    margin-left: 0px !important;
-  }
-  .headerTabs  .dropDownMenu .UserDropDownList button{
-    width: 100% !important;
-    text-align: left !important ;
-    justify-content: flex-start;
-    text-transform: capitalize;
-    font-size: 16px;
-    color:rgba(0, 0, 0, 0.7);
+  .headerTabs .dropDownMenu {
+    width: 180px;
+    right: 10px;
   }
 
- 
-  
+  .headerTabs .dropDownMenu .UserDropDownList button {
+    font-size: 13px;
+    padding: 8px 10px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  header {
+    padding: 8px 3px;
+  }
+
+  header img {
+    max-width: 80px;
+  }
+
+  header .HeaderSearch {
+    height: 38px;
+    padding: 5px 8px;
+  }
+
+  header .headerTabs {
+    font-size: 11px;
+  }
+
+  header .headerTabs img {
+    width: 18px;
+    height: 18px;
+  }
+
+  header .headerTabs .bage {
+    width: 14px;
+    height: 14px;
+    left: 14px;
+    font-size: 9px;
+  }
+
+  .headerTabs .dropDownMenu {
+    width: 160px;
+    right: 5px;
+  }
+}

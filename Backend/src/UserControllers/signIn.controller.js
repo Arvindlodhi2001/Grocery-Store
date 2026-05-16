@@ -10,6 +10,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const signInUser = asyncHandler(async (req, res) => {
+  console.log("Hello I m hitt");
+
   const { email, password } = req.body;
 
   console.log("📩 Received Login Request:", { email, password });
