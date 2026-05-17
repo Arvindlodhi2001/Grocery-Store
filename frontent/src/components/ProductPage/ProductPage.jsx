@@ -6,16 +6,15 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const ProductPage = () => {
-  const { ProductID } = useParams(); // ✅ Corrected case
-  console.log("productId---", ProductID);
-  const [product, setProduct] = useState(null); // ✅ Set initial state to null
+  const { ProductID } = useParams();
+  const [product, setProduct] = useState(null);
   const userConfig = JSON.parse(localStorage.getItem("user"));
 
   const fetchProductDetail = async () => {
     console.log(`${userConfig.API_URL}/product/byId/${ProductID}`);
     try {
       const response = await axios.get(
-        `${userConfig.API_URL}/product/byId/${ProductID}`
+        `${userConfig.API_URL}/product/byId/${ProductID}`,
       );
       setProduct(response.data.data);
       console.log("Product Fetched Successfully:", response.data.data);

@@ -72,10 +72,6 @@ const cartSlice = createSlice({
 
     builder.addCase(updateCartQuantity.fulfilled, (state, action) => {
       const updatedProduct = action.payload;
-      console.log(
-        "updatedProduct -------------------------- ",
-        JSON.stringify(updatedProduct, null, 2),
-      );
       const index = state.cartItems.findIndex(
         (item) => item._id === updatedProduct._id,
       );

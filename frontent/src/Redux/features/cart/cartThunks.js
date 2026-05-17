@@ -2,6 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import Toastify from "../../../Utils/Toastify/Toastify";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async ({ productId, userId, API_URL }, thunkAPI) => {
@@ -13,13 +15,13 @@ export const addToCart = createAsyncThunk(
     } catch (error) {
       Toastify(
         "error",
-        error.response?.data?.message || "Failed to add product to cart"
+        error.response?.data?.message || "Failed to add product to cart",
       );
       return thunkAPI.rejectWithValue(
-        error.response?.data?.message || "Something went wrong"
+        error.response?.data?.message || "Something went wrong",
       );
     }
-  }
+  },
 );
 
 export const deleteToCart = createAsyncThunk(
@@ -35,13 +37,13 @@ export const deleteToCart = createAsyncThunk(
     } catch (error) {
       Toastify(
         "error",
-        error.response?.data?.message || "Failed to remove product from cart"
+        error.response?.data?.message || "Failed to remove product from cart",
       );
       return thunkAPI.rejectWithValue(
-        error.response?.data?.message || "Something went wrong"
+        error.response?.data?.message || "Something went wrong",
       );
     }
-  }
+  },
 );
 
 export const getAllCart = createAsyncThunk(
@@ -53,14 +55,14 @@ export const getAllCart = createAsyncThunk(
     } catch (error) {
       Toastify(
         "error",
-        error.response?.data?.message || "Failed to get product to cart"
+        error.response?.data?.message || "Failed to get product to cart",
       );
       return thunkAPI.rejectWithValue(
         error.response?.data?.message ||
-          "Something went wrong get product to cart"
+          "Something went wrong get product to cart",
       );
     }
-  }
+  },
 );
 
 export const updateCartQuantity = createAsyncThunk(
@@ -77,8 +79,8 @@ export const updateCartQuantity = createAsyncThunk(
     } catch (error) {
       Toastify("error", "Failed to update quantity");
       return thunkAPI.rejectWithValue(
-        error.response?.data?.message || "Something went wrong"
+        error.response?.data?.message || "Something went wrong",
       );
     }
-  }
+  },
 );

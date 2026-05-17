@@ -8,7 +8,6 @@ dotenv.config();
 
 const app = express();
 
-// CORS Configuration
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN,
@@ -18,7 +17,13 @@ app.use(
   })
 );
 
-app.options("*", cors());
+app.options(
+  "*",
+  cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+  })
+);
 
 // Body parsers
 app.use(express.json({ limit: "10mb" }));
