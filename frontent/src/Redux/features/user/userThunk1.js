@@ -48,7 +48,7 @@ export const removeUser = createAsyncThunk(
     } catch (error) {
       Toastify("error", "User removal failed");
       return rejectWithValue(
-        error.response?.data?.message || "Something went wrong!",
+        error.response?.data?.message || "Something went wrong!!",
       );
     }
   },
