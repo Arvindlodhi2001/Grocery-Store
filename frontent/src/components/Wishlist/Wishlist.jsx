@@ -22,12 +22,10 @@ const wishlistItems = [
 ];
 
 const Wishlist = () => {
-  // Handle remove item from wishlist
   const handleRemove = (id) => {
     alert(`Remove item with ID: ${id}`);
   };
 
-  // Handle add item to cart
   const handleAddToCart = (id) => {
     alert(`Added item with ID: ${id} to cart`);
   };

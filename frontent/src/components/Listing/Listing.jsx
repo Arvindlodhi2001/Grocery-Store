@@ -20,7 +20,7 @@ const Listing = () => {
   const [products, setProducts] = useState([]);
   const [QuickView, setQuickView] = useState(false);
   const [Config, setConfig] = useState(
-    JSON.parse(localStorage.getItem("user"))
+    JSON.parse(localStorage.getItem("user")),
   );
 
   const FetchAllProduct = async () => {
@@ -85,8 +85,8 @@ const Listing = () => {
           color.some((userColor) =>
             product.color?.some(
               (productColor) =>
-                productColor.toLowerCase() === userColor.toLowerCase()
-            )
+                productColor.toLowerCase() === userColor.toLowerCase(),
+            ),
           )
         );
       })
@@ -95,7 +95,7 @@ const Listing = () => {
           condition.length === 0 ||
           condition.some(
             (userCondition) =>
-              userCondition.toLowerCase() === product.condition.toLowerCase()
+              userCondition.toLowerCase() === product.condition.toLowerCase(),
           )
         );
       });

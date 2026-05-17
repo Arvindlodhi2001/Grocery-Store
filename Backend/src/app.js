@@ -2,78 +2,78 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import { logger } from "./utils/logger.js";
+
 dotenv.config();
 
 const app = express();
 
-// ✅ Correct CORS
+// CORS Configuration
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
 
-// ✅ Preflight (CORS OPTIONS)
 app.options("*", cors());
 
-// ✅ Body parsers (use only express)
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Body parsers
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
-// ✅ Cookie Parser
+// Cookie Parser
 app.use(cookieParser());
 
-// ✅ Static files
+// Static files
 app.use("/uploads", express.static("uploads"));
 
-// ✅ Routes Import
+// Request logging middleware
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.path}`);
+  next();
+});
+
+// Routes Import
 import userRoutes from "./userRoutes/user.routes.js";
 import adminRouter from "./Admin/adminRouter/admin.router.js";
 
-// ✅ Route Mounting
+// Route Mounting
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/admin", adminRouter);
 
+// 404 Handler
+app.use((req, res) => {
+  logger.warn(`Route not found: ${req.method} ${req.path}`);
+  res.status(404).json({
+    statusCode: 404,
+    data: null,
+    message: "Route not found",
+    success: false,
+  });
+});
+
+// Global Error Handler Middleware
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+
+  logger.error({
+    statusCode,
+    message,
+    path: req.path,
+    method: req.method,
+    stack: err.stack,
+  });
+
+  res.status(statusCode).json({
+    statusCode,
+    data: null,
+    message,
+    success: false,
+  });
+});
+
 export { app };
-
-// import express from "express";
-// import cors from "cors";
-// import cookieParser from "cookie-parser";
-// import bodyParser from "body-parser";
-
-// const app = express();
-
-// // ✅ Load environment variables
-// import dotenv from "dotenv";
-// dotenv.config();
-
-// // ✅ Middleware (must be before routes)
-// // app.use(cors({ origin: "http://localhost:3000", credentials: true }));
-// app.use(cors({ origin: "*", credentials: true }));
-
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded());
-// app.use(bodyParser.urlencoded({ extended: true }));
-
-// app.use(express.json({}));
-// app.use(express.urlencoded({ extended: true }));
-
-// app.use(cookieParser());
-// app.use(express.json());
-// app.use("/uploads", express.static("uploads"));
-
-// // ✅ Import Routes
-// import userRoutes from "./userRoutes/user.routes.js";
-// import adminRouter from "./Admin/adminRouter/admin.router.js";
-// import { upload } from "./middlewares/multer.middlewares.js";
-
-// // ✅ Mount Routes
-// app.use("/api/v1/users", userRoutes);
-// app.use("/api/v1/admin", adminRouter);
-
-// export { app };
-
-// // -----------------------------------------------------------------------------------

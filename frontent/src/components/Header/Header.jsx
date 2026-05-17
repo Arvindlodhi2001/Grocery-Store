@@ -198,7 +198,10 @@ const Header = () => {
                     </div>
                   </span>
                 </li>
-                <li className="list-inline-item text-center">
+                <li
+                  className="list-inline-item text-center"
+                  onClick={() => navigate("/Wishlist")}
+                >
                   <span className="position-relative">
                     <img src={Wishlist} alt="Wishlist Icon" />
                     <span className="bage">15</span>

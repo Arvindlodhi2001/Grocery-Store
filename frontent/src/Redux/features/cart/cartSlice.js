@@ -43,7 +43,7 @@ const cartSlice = createSlice({
       .addCase(deleteToCart.fulfilled, (state, action) => {
         state.isLoading = false;
         state.cartItems = state.cartItems.filter(
-          (item) => item._id !== action.payload.productId
+          (item) => item._id !== action.payload.productId,
         );
         state.message = "Item deleted successfully";
       })
@@ -72,8 +72,12 @@ const cartSlice = createSlice({
 
     builder.addCase(updateCartQuantity.fulfilled, (state, action) => {
       const updatedProduct = action.payload;
+      console.log(
+        "updatedProduct -------------------------- ",
+        JSON.stringify(updatedProduct, null, 2),
+      );
       const index = state.cartItems.findIndex(
-        (item) => item._id === updatedProduct._id
+        (item) => item._id === updatedProduct._id,
       );
       if (index !== -1) {
         state.cartItems[index].quantity = updatedProduct.quantity;

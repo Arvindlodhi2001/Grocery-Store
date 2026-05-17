@@ -38,7 +38,3 @@ const topProductSchema = new Schema(
   { timestamps: true }
 );
 
-export const FeaturedCategories = mongoose.model(
-  "FeaturedCategories",
-  FeaturedCategoriesSchema
-);

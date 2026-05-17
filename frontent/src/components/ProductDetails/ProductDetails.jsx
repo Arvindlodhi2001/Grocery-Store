@@ -5,7 +5,7 @@ import { Spinner, Container, Row, Col, Card, Button } from "react-bootstrap";
 import CommentSection from "../Comment/CommentSection";
 
 const ProductDetails = () => {
-  //const { id } = useParams(); // Get product ID from URL
+  // const { id } = useParams(); // Get product ID from URL
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -13,9 +13,10 @@ const ProductDetails = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `localhost:5000/api/v1/users/product/byId/67abf6e7c0123aa2eb52585d`
+          // `localhost:5000/api/v1/users/product/byId/6a095cdf8bb0615b83c9a000`,
+          `http://localhost:5000/api/v1/users/product/byId/6a095cdf8bb0615b83c9a000`,
         );
-        setProduct(response.data);
+        setProduct(response.data.data);
       } catch (error) {
         console.error("Error fetching product:", error);
       } finally {
@@ -43,7 +44,7 @@ const ProductDetails = () => {
             <Card.Img variant="top" src={product.thumbnail} />
             <Card.Body>
               <Row>
-                {product.imageFiles.map((img, index) => (
+                {product?.imageFiles?.map((img, index) => (
                   <Col key={index} xs={4} className="mb-2">
                     <img
                       src={img}
@@ -78,7 +79,7 @@ const ProductDetails = () => {
       <Row className="mt-5">
         <Col>
           <h4>Customer Reviews</h4>
-          {product.comments.length > 0 ? (
+          {product?.comments?.length > 0 ? (
             product.comments.map((comment) => (
               <Card key={comment._id} className="mb-2">
                 <Card.Body>

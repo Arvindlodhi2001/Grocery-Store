@@ -25,11 +25,11 @@ const Product = () => {
   const [MinMaxSize, setMinMaxSize] = useState("20%");
   const [QuickView, setQuickView] = useState(false);
   const [Config, setConfig] = useState(
-    JSON.parse(localStorage.getItem("user"))
+    JSON.parse(localStorage.getItem("user")),
   );
 
   const [ImageURL, setImageURL] = useState(
-    "https://5.imimg.com/data5/SELLER/Default/2022/9/XR/TQ/KY/38630640/casual-shoes.jpg"
+    "https://5.imimg.com/data5/SELLER/Default/2022/9/XR/TQ/KY/38630640/casual-shoes.jpg",
   );
 
   useEffect(() => {
@@ -210,14 +210,15 @@ const Product = () => {
 export default Product;
 
 const ProductCard = (props) => {
-  const { API_URL } = JSON.parse(localStorage.getItem("user"));
+  // const { API_URL } = JSON.parse(localStorage.getItem("user"));
+  const API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const AddToCart = async (productId, userId) => {
     try {
       const result = await dispatch(
-        addToCart({ productId, userId, API_URL })
+        addToCart({ productId, userId, API_URL }),
       ).unwrap();
       Toastify("success", "Product added to cart successfully!");
       console.log(result);
@@ -250,6 +251,7 @@ const ProductCard = (props) => {
                 href=""
                 style={{ borderRight: "1px solid #BCE3C9" }}
                 tooltip="Add to Wishlist"
+                onClick={() => props.QuickViewHandel(true)}
               >
                 <FavoriteBorderOutlinedIcon />
               </Link>

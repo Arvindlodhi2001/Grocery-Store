@@ -1,0 +1,186 @@
+/* Register.css */
+
+* {
+  font-family: "Quicksand", sans-serif;
+}
+
+.MainFirstBox {
+  background-color: #f2f2f2;
+  min-height: 100vh;
+}
+
+.firstCol {
+  background-color: rgb(24, 134, 83) !important;
+}
+
+.MainBox {
+  overflow: hidden;
+  border-radius: 30px !important;
+  background-color: white;
+}
+
+.textcontainer {
+  padding: 80px 20px 150px 20px;
+}
+
+.textcontainer h1 {
+  font-weight: 600;
+  color: #fff;
+}
+
+.textcontainer p {
+  color: #eae1e1;
+}
+
+.textcontainer img {
+  width: 200px;
+  height: 200px;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.colSecond {
+  background-color: #9fdebe;
+}
+
+.LogInButton {
+  font-size: 15px !important;
+  text-transform: capitalize !important;
+  background-color: #b7abab !important;
+  color: white !important;
+  padding: 10px 50px !important;
+  border-radius: 25px !important;
+}
+
+.SignButton {
+  border: 2px solid rgb(24, 134, 83) !important;
+  background-color: rgb(24, 134, 83) !important;
+}
+
+.TextAccountLine {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.AccountCreate {
+  color: rgb(24, 134, 83);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.AccountCreate:hover {
+  color: #fdc040;
+}
+
+/* PASSWORD */
+
+.passwordBox {
+  position: relative;
+}
+
+.passwordInput {
+  padding-right: 45px !important;
+}
+
+.passwordIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* ========================= */
+/* TABLET RESPONSIVE */
+/* ========================= */
+
+@media screen and (max-width: 992px) {
+  .MainBox {
+    width: 95% !important;
+  }
+
+  .textcontainer {
+    padding: 50px 15px 80px 15px;
+  }
+
+  .textcontainer h1 {
+    font-size: 28px;
+  }
+
+  .colSecond {
+    padding: 30px !important;
+  }
+
+  label {
+    font-size: 18px;
+  }
+}
+
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+
+@media screen and (max-width: 768px) {
+  .firstCol {
+    display: none !important;
+  }
+
+  .MainBox {
+    width: 100% !important;
+    border-radius: 20px !important;
+  }
+
+  .colSecond {
+    width: 100% !important;
+    padding: 25px !important;
+  }
+
+  .colSecond h1 {
+    font-size: 28px !important;
+  }
+
+  label {
+    font-size: 16px;
+  }
+
+  .form-control {
+    font-size: 14px !important;
+    padding: 10px !important;
+  }
+
+  .LogInButton {
+    width: 100% !important;
+    padding: 12px !important;
+  }
+
+  .radioBox {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ========================= */
+/* SMALL MOBILE */
+/* ========================= */
+
+@media screen and (max-width: 480px) {
+  .MainBox {
+    border-radius: 0px !important;
+  }
+
+  .colSecond {
+    padding: 20px !important;
+  }
+
+  .colSecond h1 {
+    font-size: 24px !important;
+  }
+
+  .textcontainer img {
+    width: 150px;
+    height: 150px;
+  }
+}

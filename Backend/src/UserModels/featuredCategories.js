@@ -4,31 +4,31 @@ const FeaturedCategoriesSchema = new Schema(
   {
     subCategories: {
       type: String,
-      require: true,
+      required: true,
     },
     name: {
       type: String,
-      require: true,
+      required: true,
     },
     quantity: {
       type: Number,
-      require: true,
+      required: true,
     },
     colors: {
       type: String,
-      require: true,
+      required: true,
     },
     title: {
       type: String,
-      require: true,
+      required: true,
     },
     description: {
       type: String,
-      require: true,
+      required: true,
     },
     image: {
       type: String,
-      require: true,
+      required: true,
     },
     mainCategories: {
       type: Schema.Types.ObjectId,

@@ -1,226 +1,482 @@
-.DetailPage{
+.DetailPage {
   padding: 10px 20px;
-
-}
-.breadcrumbWrapper{
-    width: 100%;
-    height: auto;
-    padding: 20px 45px;
-    font-family: "Quicksand" , suns-serif;
-  }
-
-  .breadcrumb2{
-    background-color: none !important;
-    padding: 0px !important;
-
-  }
-  
-  .breadcrumb2 ul{
-    margin-left: 25px;
-    padding: 4px 10px;
-    margin-top: 10px;
-  }
-
-  .breadcrumb2 li{
-    margin-right: 25px !important;
-    font-size: 17px;
-    font-weight: 600;
-  }
-
-  .breadcrumb2 li .link{
-    text-decoration: none; 
-    padding: 0px 5px 0px 0px;
-    color: #3bb77e !important;
-  }
-
-
-  .DetailPage .breadcrumb2{
-    width: 100%;
-    height:auto;
-    padding: 45px 35px;
-    background-color: #d8f1e5 !important;
-    border-radius: 20px !important;
-    margin-bottom: 30px;
-  
-  }
-  
- 
-  /* .DetailPage .breadcrumb2 ul li a{
-    color: #000;
-    text-decoration: none;
-    font-size: 18px;
-  } */
-
-  .part1{
-    font-family: "Quicksand" , suns-serif;
-  }
-
-  .part1 .productInfo h2{
-    color: #253D4E;
-    font-weight: 700;
-    line-height: 1.2;
-    font-size: 30px;
-    width: 50%;
-  }
-
-  .part1 .productInfo .price .NewPrice{
-    color: #3bb77e;
-    font-size: 40px;
-    font-weight: 500;
-  }
-
-  .part1 .productInfo .text-org{
-    color:rgb(252, 220, 39);
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
-  }
-
-  .part1 .productInfo .OldPrice{
-    color: rgb(148, 140, 140);
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
-    font-size: 25px;
-  }
-
-  .part1 .productInfo .Paragraph{
-    width: 75%;
-    font-size: 20px;
-    opacity: 0.6;
-  } 
-
-  .part1 .productInfo .Size .weight{
-    font-size: 19px;
-    opacity: 0.8;
-    font-weight: 600;
-  }
-
-  .part1 .productInfo .Size  .btn{
-    font-size: 19px;
-    margin-left: 10px;
-  }
-
-  .part1 .productInfo .Size  .btn:hover{
-   background-color:#3bb77e ;
-   color: #fff;
-  }
-
-  .part1 .productInfo   .IpBtnFit input{
-    width: 70px;
-    height: 50px; 
-    text-align: center;
-    font-size: 20px;
-    padding: 10px;
-  }
-
-  .part1 .productInfo   .IpBtnFit Button{
-    color: black;
-    text-transform: capitalize;
-    padding: 5px 10px;
-    margin-left: 25px;
-    opacity: 0.8;
-  }
-
-  .part1 .productInfo   .IpBtnFit Button:hover{
-    background-color: #3bb77e;
-    color: #fff
-    ;
-  } 
-
-  .part1 .productInfo .OtherInfo p{
-    font-weight: 500;
-    font-size: 17px;
-    opacity: 0.8;
-  }
-
-  .part1 .productInfo .OtherInfo span{
-    font-size: 16px;
-    color: #289a65;
-    font-weight: 300;
-    opacity:10;
-    margin-left: 5px;
-  }
-
-
-
-
-  
-
-
- .productZoom .Image1 .InnerImageZoom{
-    width: 497px !important;
-    height: 450px !important;
-    border-radius: 30px ;  
-    object-fit: cover;
-
 }
 
-.productZoom .Images2{
-  display: flex;
-  justify-content:space-around;
+.breadcrumbWrapper {
+  width: 100%;
+  height: auto;
+  padding: 20px 45px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.breadcrumb2 {
+  background-color: none !important;
+  padding: 0px !important;
+}
+
+.breadcrumb2 ul {
+  margin-left: 25px;
+  padding: 4px 10px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
-.productZoom .Images2 .SmallImage{
+.breadcrumb2 li {
+  margin-right: 25px !important;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.breadcrumb2 li .link {
+  text-decoration: none;
+  padding: 0px 5px 0px 0px;
+  color: #3bb77e !important;
+}
+
+.DetailPage .breadcrumb2 {
+  width: 100%;
+  height: auto;
+  padding: 45px 35px;
+  background-color: #d8f1e5 !important;
+  border-radius: 20px !important;
+  margin-bottom: 30px;
+}
+
+.part1 {
+  font-family: "Quicksand", sans-serif;
+}
+
+.part1 .productInfo h2 {
+  color: #253d4e;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 30px;
+  width: 100%;
+}
+
+.part1 .productInfo .price .NewPrice {
+  color: #3bb77e;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.part1 .productInfo .text-org {
+  color: rgb(252, 220, 39);
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.part1 .productInfo .OldPrice {
+  color: rgb(148, 140, 140);
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+}
+
+.part1 .productInfo .Paragraph {
+  width: 100%;
+  font-size: 20px;
+  opacity: 0.6;
+}
+
+.part1 .productInfo .Size .weight {
+  font-size: 19px;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.part1 .productInfo .Size .btn {
+  font-size: 19px;
+  margin-left: 10px;
+}
+
+.part1 .productInfo .Size .btn:hover {
+  background-color: #3bb77e;
+  color: #fff;
+}
+
+.part1 .productInfo .IpBtnFit input {
+  width: 70px;
+  height: 50px;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.part1 .productInfo .IpBtnFit button {
+  color: black;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  margin-left: 25px;
+  opacity: 0.8;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.part1 .productInfo .IpBtnFit button:hover {
+  background-color: #3bb77e;
+  color: #fff;
+}
+
+.part1 .productInfo .OtherInfo p {
+  font-weight: 500;
+  font-size: 17px;
+  opacity: 0.8;
+}
+
+.part1 .productInfo .OtherInfo span {
+  font-size: 16px;
+  color: #289a65;
+  font-weight: 300;
+  opacity: 0.8;
+  margin-left: 5px;
+}
+
+.productZoom .Image1 .InnerImageZoom {
+  width: 100% !important;
+  max-width: 497px !important;
+  height: auto !important;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.productZoom .Images2 {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.productZoom .Images2 .SmallImage {
   width: 100px !important;
   height: 100px !important;
   border-radius: 10px;
-  
 }
 
-.productZoom .Images2 .SmallImage img{
+.productZoom .Images2 .SmallImage img {
   border-radius: 10px;
-  width: 100px !important;
-  height: 100px !important;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
   border: 2px solid gray;
   cursor: pointer;
 }
 
-/* Product Bottom Info Start */
+/* Product Bottom Info */
 
-.part1  .ProductBottomINfo{
+.part1 .ProductBottomINfo {
   margin-top: 10px;
   width: 100%;
   height: auto;
   border: 2px solid gray;
   border-radius: 15px;
   padding: 40px 50px;
-
 }
 
-.part1  .ProductBottomINfo header{
+.part1 .ProductBottomINfo header {
   width: 100%;
 }
 
-.part1  .ProductBottomINfo header Button{
+.part1 .ProductBottomINfo header button {
   text-transform: capitalize;
-  color: black;
-  font-family: "Quicksand" , suns-serif;
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
   font-size: 19px;
   margin-right: 15px;
-  background-color:rgb(59, 183, 126);
+  background-color: rgb(59, 183, 126);
   opacity: 0.8;
-  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
 }
 
-.part1  .ProductBottomINfo p{
+.part1 .ProductBottomINfo p {
   font-size: 19px;
   opacity: 0.8;
 }
 
-.part1  .ProductBottomINfo .HeadPartS{
+.part1 .ProductBottomINfo .HeadPartS {
   font-weight: 600;
   opacity: 0.8;
 }
 
-.part1  .ProductBottomINfo .ResponsePart{
+.part1 .ProductBottomINfo .ResponsePart {
   opacity: 0.8;
 }
 
-table, tr, td {
+table,
+tr,
+td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 10px 20px;
+}
+
+/* Tablet Responsiveness (1024px and below) */
+@media (max-width: 1024px) {
+  .DetailPage {
+    padding: 10px 15px;
+  }
+
+  .breadcrumbWrapper {
+    padding: 20px 30px;
+  }
+
+  .DetailPage .breadcrumb2 {
+    padding: 30px 25px;
+  }
+
+  .part1 .productInfo h2 {
+    font-size: 24px;
+  }
+
+  .part1 .productInfo .Paragraph {
+    font-size: 18px;
+  }
+
+  .productZoom .Image1 .InnerImageZoom {
+    max-width: 400px !important;
+  }
+
+  .productZoom .Images2 .SmallImage {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .part1 .ProductBottomINfo {
+    padding: 30px 40px;
+  }
+}
+
+/* Mobile Responsiveness (768px and below) */
+@media (max-width: 768px) {
+  .DetailPage {
+    padding: 8px 12px;
+  }
+
+  .breadcrumbWrapper {
+    padding: 15px 20px;
+  }
+
+  .breadcrumb2 li {
+    margin-right: 15px !important;
+    font-size: 14px;
+  }
+
+  .DetailPage .breadcrumb2 {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+
+  .part1 .productInfo h2 {
+    font-size: 22px;
+  }
+
+  .part1 .productInfo .price .NewPrice {
+    font-size: 32px;
+  }
+
+  .part1 .productInfo .OldPrice {
+    font-size: 22px;
+  }
+
+  .part1 .productInfo .Paragraph {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .part1 .productInfo .Size .weight {
+    font-size: 17px;
+  }
+
+  .part1 .productInfo .Size .btn {
+    font-size: 17px;
+  }
+
+  .part1 .productInfo .IpBtnFit input {
+    width: 60px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .part1 .productInfo .IpBtnFit button {
+    margin-left: 15px;
+    font-size: 16px;
+  }
+
+  .productZoom .Image1 .InnerImageZoom {
+    max-width: 300px !important;
+  }
+
+  .productZoom .Images2 {
+    justify-content: center;
+  }
+
+  .productZoom .Images2 .SmallImage {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .part1 .ProductBottomINfo {
+    padding: 25px 30px;
+  }
+
+  .part1 .ProductBottomINfo header button {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .part1 .ProductBottomINfo p {
+    font-size: 16px;
+  }
+
+  table,
+  tr,
+  td {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile Responsiveness (576px and below) */
+@media (max-width: 576px) {
+  .DetailPage {
+    padding: 8px 10px;
+  }
+
+  .breadcrumbWrapper {
+    padding: 10px 10px;
+  }
+
+  .breadcrumb2 ul {
+    margin-left: 0;
+    padding: 2px 5px;
+  }
+
+  .breadcrumb2 li {
+    margin-right: 10px !important;
+    font-size: 12px;
+  }
+
+  .DetailPage .breadcrumb2 {
+    padding: 15px 10px;
+    margin-bottom: 15px;
+  }
+
+  .part1 .productInfo h2 {
+    font-size: 18px;
+  }
+
+  .part1 .productInfo .price .NewPrice {
+    font-size: 28px;
+  }
+
+  .part1 .productInfo .OldPrice {
+    font-size: 18px;
+  }
+
+  .part1 .productInfo .Paragraph {
+    font-size: 14px;
+  }
+
+  .part1 .productInfo .Size .weight {
+    font-size: 15px;
+  }
+
+  .part1 .productInfo .Size .btn {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  .part1 .productInfo .IpBtnFit input {
+    width: 50px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .part1 .productInfo .IpBtnFit button {
+    margin-left: 10px;
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .productZoom .Image1 .InnerImageZoom {
+    max-width: 100% !important;
+  }
+
+  .productZoom .Images2 {
+    gap: 5px;
+  }
+
+  .productZoom .Images2 .SmallImage {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .part1 .ProductBottomINfo {
+    padding: 20px 15px;
+    border-radius: 10px;
+  }
+
+  .part1 .ProductBottomINfo header button {
+    font-size: 14px;
+  }
+
+  .part1 .ProductBottomINfo p {
+    font-size: 14px;
+  }
+
+  table,
+  tr,
+  td {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+/* Very Small Phone (375px and below) */
+@media (max-width: 375px) {
+  .DetailPage {
+    padding: 5px 8px;
+  }
+
+  .breadcrumb2 li {
+    margin-right: 8px !important;
+    font-size: 11px;
+  }
+
+  .DetailPage .breadcrumb2 {
+    padding: 12px 8px;
+  }
+
+  .part1 .productInfo h2 {
+    font-size: 16px;
+  }
+
+  .part1 .productInfo .price .NewPrice {
+    font-size: 24px;
+  }
+
+  .part1 .productInfo .Paragraph {
+    font-size: 12px;
+  }
+
+  .part1 .productInfo .IpBtnFit input {
+    width: 45px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .part1 .ProductBottomINfo {
+    padding: 15px 10px;
+  }
+
+  .part1 .ProductBottomINfo header button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 }

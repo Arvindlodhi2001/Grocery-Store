@@ -1,96 +1,159 @@
-.SelectDropdown{
-    width: 275px ;
-    height: auto;
-    background-color: #fff ;
-    position: absolute  ;
-    top: 107%;
-    left: -21px;
-    z-index: 100;
-    box-shadow: 0 3px 6px rgb(0 0 0 /20%);
-    padding: 15px;  
-    
+.SelectDropdown {
+  width: 100%;
+  max-width: 275px;
+  height: auto;
+  background-color: #fff;
+  position: absolute;
+  top: 107%;
+  left: -21px;
+  z-index: 100;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 20%);
+  padding: 15px;
 }
 
-.SelectDrop  .openSelect{
-  /* display: block; */
+.SelectDrop .openSelect {
   padding: 10px 0px;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   position: relative;
-  /* color: rgba(0,0, 0,0.7 ); */
-
-
 }
 
- .SelectDrop  .openSelect.arrow
- {
+.SelectDrop .openSelect.arrow {
   position: absolute;
   top: 110px;
   right: 10px;
   font-size: 20px;
-  /* color: #3e4140 !important; */
-  color: rgba(0,0, 0,0.7 ) !important;
-
- }
-
-
-
-.SelectDropdown .searchFeild input{
-    width: 100%;
-    height: 40px;
-    font-size: 16px;
-    border: 1px solid #bce3c9;
-    outline: none;
-    padding:  0px 15px ;
-    
+  color: rgba(0, 0, 0, 0.7) !important;
 }
 
-.SelectDropdown .searchResults  {
+.SelectDropdown .searchFeild input {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid #bce3c9;
+  outline: none;
+  padding: 0px 15px;
+}
+
+.SelectDropdown .searchResults {
   width: 100%;
   padding: 0px;
   max-height: 238px;
-  overflow-y:scroll;
+  overflow-y: scroll;
   margin-top: 5px;
 }
 
-.SelectDropdown  .searchResults li {
-    list-style: none;
-    padding: 8px 5px;
-    width: 100%;
-    margin-top: 10px;
-    color: rgba(0,0, 0,0.7 );
-    border-radius: 7px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
+.SelectDropdown .searchResults li {
+  list-style: none;
+  padding: 8px 5px;
+  width: 100%;
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 7px;
 }
 
-  .SelectDropdown  .searchResults  li.active{
-    background-color: #f1f1f1;
+.SelectDropdown .searchResults li.active {
+  background-color: #f1f1f1;
+}
+
+.SelectDropdown ul::-webkit-scrollbar {
+  width: 10px;
+}
+
+.SelectDropdown ul::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.SelectDropdown ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.SelectDropdown .searchResults li:hover {
+  background-color: #3bb77e;
+  color: #fff;
+}
+
+.SelectDrop .openSelect .LocationOnIcon {
+  font-size: 25px;
+  color: #3bb77e;
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 1024px) {
+  .SelectDropdown {
+    max-width: 250px;
+    left: -15px;
   }
 
-  .SelectDropdown ul::-webkit-scrollbar {
-    width: 10px;  
+  .SelectDropdown .searchFeild input {
+    font-size: 14px;
+    height: 38px;
   }
 
-  .SelectDropdown ul::-webkit-scrollbar-thumb {
-    background: #ccc; 
-    border-radius: 5px; 
+  .SelectDropdown .searchResults {
+    max-height: 220px;
   }
 
-  .SelectDropdown ul::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 5px; 
+  .SelectDropdown .searchResults li {
+    padding: 7px 4px;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .SelectDropdown {
+    width: 100%;
+    max-width: 100%;
+    position: static;
+    box-shadow: none;
+    border: 1px solid #bce3c9;
+    border-radius: 8px;
   }
 
-  .SelectDropdown .searchResults li:hover{
-    background-color: #3bb77e;
-    color: #fff;
+  .SelectDrop .openSelect.arrow {
+    position: static;
   }
 
-  .SelectDrop .openSelect .LocationOnIcon{
-    font-size: 25px;
-    /* background-color: #3bb77e; */
-    color: #3bb77e;
+  .SelectDropdown .searchFeild input {
+    font-size: 13px;
+    height: 36px;
   }
+
+  .SelectDropdown .searchResults {
+    max-height: 200px;
+  }
+
+  .SelectDropdown .searchResults li {
+    padding: 6px 4px;
+    font-size: 13px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .SelectDropdown {
+    padding: 12px;
+  }
+
+  .SelectDropdown .searchFeild input {
+    font-size: 12px;
+    height: 34px;
+    padding: 0 12px;
+  }
+
+  .SelectDropdown .searchResults {
+    max-height: 180px;
+  }
+
+  .SelectDropdown .searchResults li {
+    padding: 5px 3px;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .SelectDrop .openSelect .LocationOnIcon {
+    font-size: 20px;
+  }
+}

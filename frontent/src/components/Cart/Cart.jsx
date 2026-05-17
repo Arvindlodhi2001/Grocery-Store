@@ -18,15 +18,15 @@ const Cart = () => {
     message,
   } = useSelector((state) => state.cart);
   const [userConfig, setUserConfig] = useState(
-    JSON.parse(localStorage.getItem("user"))
+    JSON.parse(localStorage.getItem("user")),
   );
+
+  const API_URL = import.meta.env.VITE_API_URL;
   const [promoCode, setPromoCode] = useState("");
 
   useEffect(() => {
     if (userConfig) {
-      dispatch(
-        getAllCart({ userId: userConfig._id, API_URL: userConfig.API_URL })
-      );
+      dispatch(getAllCart({ userId: userConfig._id, API_URL: API_URL }));
     }
   }, [dispatch, userConfig]);
 
@@ -37,8 +37,8 @@ const Cart = () => {
         productId: id,
         quantity: newQuantity,
         userId: userConfig._id,
-        API_URL: userConfig.API_URL,
-      })
+        API_URL: API_URL,
+      }),
     );
   };
 
@@ -48,8 +48,8 @@ const Cart = () => {
         deleteToCart({
           productId,
           userId: userConfig._id,
-          API_URL: userConfig.API_URL,
-        })
+          API_URL: API_URL,
+        }),
       ).unwrap();
       Toastify("success", "Product removed from cart successfully!");
     } catch (error) {
@@ -60,7 +60,7 @@ const Cart = () => {
   const subtotal = useMemo(() => {
     return cartItems.reduce(
       (sum, item) => sum + (item.price || 0) * (item.quantity || 1),
-      0
+      0,
     );
   }, [cartItems]);
 
@@ -99,7 +99,10 @@ const Cart = () => {
               </div>
             )}
             <div className="continue-shopping mt-4">
-              <a href="/" className="text-decoration-none btn btn-outline-secondary">
+              <a
+                href="/Home"
+                className="text-decoration-none btn btn-outline-secondary"
+              >
                 Continue Shopping
               </a>
             </div>
@@ -167,7 +170,12 @@ const CartItem = ({ item, updateQuantity, removeItem }) => {
             src={item.thumbnail}
             alt={item.productName}
             className="img-fluid rounded"
-            style={{ width: "100%", maxWidth: "120px", height: "auto", objectFit: "cover" }}
+            style={{
+              width: "100%",
+              maxWidth: "120px",
+              height: "auto",
+              objectFit: "cover",
+            }}
           />
         </div>
 

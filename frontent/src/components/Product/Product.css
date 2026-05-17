@@ -1,356 +1,522 @@
-.HomeProduct{
-    padding: 0px 30px;
+.HomeProduct {
+  padding: 0px 30px;
 }
 
-.Header{
-    display: flex;
-    justify-content: space-between;
+.Header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.HomeProduct .Header .Cat ul{
-display: flex;
-text-align: center;
-align-items: center;
-cursor: pointer;
-text-decoration: none;
-list-style: none;
+.HomeProduct .Header .Cat ul {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  list-style: none;
+  flex-wrap: wrap;
 }
 
-.HomeProduct .Header .Cat ul li{
-    margin-right: 20px;
-    font-weight: 600;
-    transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
+.HomeProduct .Header .Cat ul li {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
 }
 
-.HomeProduct .Header .Cat li:hover{
-    text-decoration: underline;
-     color: #3bb77e;
+.HomeProduct .Header .Cat li:hover {
+  text-decoration: underline;
+  color: #3bb77e;
 }
 
+/* Product Card CSS */
 
-/* Product Card CSS Start */
-
-.HomeProduct .ProductRow{
- display: flex;
- padding: 30px 0px;
- flex-wrap: wrap;
+.HomeProduct .ProductRow {
+  display: flex;
+  padding: 30px 0px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.HomeProduct .ProductRow .item{
-    /* width: 25%; */
-    padding: 15px 8px;
+.HomeProduct .ProductRow .item {
+  padding: 15px 8px;
+  flex: 0 0 calc(25% - 10px);
 }
 
-.ProductThumb{
-    position: relative;
-    width: 100%;
-    height: auto;
-    border: 1px solid rgba(0,0,0,0.1);
-    padding: 5px;
-    transition:all 0.3s ease-in-out ;
-    overflow: hidden;
-    border-radius: 14px;
-    -webkit-border-radius: 14px;
-    -moz-border-radius: 14px;
-    -ms-border-radius: 14px;
-    -o-border-radius: 14px;
-    -webkit-transition:all 0.3s ease-in-out ;
-    -moz-transition:all 0.3s ease-in-out ;
-    -ms-transition:all 0.3s ease-in-out ;
-    -o-transition:all 0.3s ease-in-out ;
+.ProductThumb {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  border-radius: 14px;
 }
 
-.ProductThumb .Badge{
-    position: absolute;
-    display: inline-block;
-    top: 0px;
-    left: 0px;
-    width: 80px;
-    height: 30px;
-    z-index: 10;
-    color: #fff;
-    border-bottom-right-radius: 14px;
-    border-top-left-radius: 14px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: capitalize;
+.ProductThumb .Badge {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+  width: 80px;
+  height: 30px;
+  z-index: 10;
+  color: #fff;
+  border-bottom-right-radius: 14px;
+  border-top-left-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
-
-.ProductThumb .Badge.hot{
-    background-color: #f36739 !important;
+.ProductThumb .Badge.hot {
+  background-color: #f36739 !important;
 }
 
-.ProductThumb .Badge.sale{
-    background-color: #7ecaf6 !important;
+.ProductThumb .Badge.sale {
+  background-color: #7ecaf6 !important;
 }
 
-.ProductThumb .Badge.new{
-    background-color: #3BB77e  !important;
+.ProductThumb .Badge.new {
+  background-color: #3bb77e !important;
 }
 
-.ProductThumb .Badge.best{
-    background-color: #f59758 !important;
-}
-
-
-.ProductThumb:hover{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.8) , 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.ProductThumb .ImageWrapper{
-width: 100%;
-overflow: hidden;
-position: relative;
-}
-
-.ProductThumb .ImageWrapper img{
-    transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
+.ProductThumb .Badge.best {
+  background-color: #f59758 !important;
 }
 
 .ProductThumb:hover {
-    transform: scale(1.05) ;
-    -webkit-transform: scale(1.05) ;
-    -moz-transform: scale(1.05) ;
-    -ms-transform: scale(1.05) ;
-    -o-transform: scale(1.05) ;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-
-.ProductThumb:hover .ImageWrapper img{
-    transform: scale(1.15) ;
-    -webkit-transform: scale(1.15) ;
-    -moz-transform: scale(1.15) ;
-    -ms-transform: scale(1.15) ;
-    -o-transform: scale(1.15) ;
+.ProductThumb .ImageWrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-.ProductThumb .ImageWrapper .overLay{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: scale(0.8);
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    -o-transform: scale(0.8);
+.ProductThumb .ImageWrapper img {
+  transition: all 0.3s ease-in-out;
 }
 
-.ProductThumb:hover .ImageWrapper .overLay{
-    /* background-color: rgba(225,225,225,0.5); */
-    opacity: 1;
-     transform: scale(0.9) ; -webkit-transform: scale(0.9) ; -moz-transform: scale(0.9) ; -ms-transform: scale(0.9) ; -o-transform: scale(0.9) ;
+.ProductThumb:hover {
+  transform: scale(1.05);
 }
 
-
-
-.ProductThumb .ImageWrapper .overLay ul{
-    background: #fff;
-    width: 153px;
-    height: auto;
-    border: 1px solid #BCE3C9;
-    display: flex;
-    justify-content: space-evenly;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+.ProductThumb:hover .ImageWrapper img {
+  transform: scale(1.15);
 }
 
-.ProductThumb .ImageWrapper .overLay ul li{
-    margin-right: 0px !important;
+.ProductThumb .ImageWrapper .overLay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
 }
 
-.ProductThumb .ImageWrapper .overLay ul li a{
-    display: block;
-    padding: 10px;
-    color: #3bb77e;
+.ProductThumb:hover .ImageWrapper .overLay {
+  opacity: 1;
+  transform: scale(0.9);
 }
 
-.ProductThumb .ImageWrapper .overLay ul li a:hover{
-    color: rgb(243, 211, 30);
+.ProductThumb .ImageWrapper .overLay ul {
+  background: #fff;
+  width: 153px;
+  height: auto;
+  border: 1px solid #bce3c9;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-.ProductThumb .CategoryName{
-  color:  #000 ; 
+.ProductThumb .ImageWrapper .overLay ul li {
+  margin-right: 0px !important;
+}
+
+.ProductThumb .ImageWrapper .overLay ul li a {
+  display: block;
+  padding: 10px;
+  color: #3bb77e;
+}
+
+.ProductThumb .ImageWrapper .overLay ul li a:hover {
+  color: rgb(243, 211, 30);
+}
+
+.ProductThumb .CategoryName {
+  color: #000;
   opacity: 0.8;
   font-size: 14px;
 }
 
-.ProductThumb .Title{
-    font-size: 20px;
-    font-weight: 500;
-    color: #000;
-    line-height: 25px;
-}
-
-.ProductThumb .BrandName{
-    color: rgba(0,0,0,0.6);
-}
-
-.ProductThumb .BrandName a{
-    text-decoration: none;
-}
-
-.ProductThumb .Price{
+.ProductThumb .Title {
+  font-size: 20px;
   font-weight: 500;
-  font-size:20px;
+  color: #000;
+  line-height: 25px;
+}
+
+.ProductThumb .BrandName {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.ProductThumb .BrandName a {
+  text-decoration: none;
+}
+
+.ProductThumb .Price {
+  font-weight: 500;
+  font-size: 20px;
   margin-right: 12px;
 }
 
-.ProductThumb .OldPrice{
-    font-size: 15px;
-    opacity: 0.6;
-    color: #000;
+.ProductThumb .OldPrice {
+  font-size: 15px;
+  opacity: 0.6;
+  color: #000;
 }
 
-.ProductThumb Button{
-    margin-left: auto;
-    background-color:#def9ec ;
-    color: #3bb77e;
-    text-transform: capitalize;
-    font-size: 16px;
-    padding: 5px 15px;
+.ProductThumb button {
+  margin-left: auto;
+  background-color: #def9ec;
+  color: #3bb77e;
+  text-transform: capitalize;
+  font-size: 16px;
+  padding: 5px 15px;
+  border: none;
+  cursor: pointer;
 }
 
-.ProductThumb Button:hover{
-    background-color: #3bb77e !important;
-    color: #fff;
+.ProductThumb button:hover {
+  background-color: #3bb77e !important;
+  color: #fff;
 }
-
 
 /* Quick View Container */
 
-.QuickViewContainer{
-    position: absolute;
-    width: 100% !important ;
-    height: 750px !important ;
-    background-color:rgba(50, 48, 48, 0.5);
-    /* opacity: 0.8; */
-
-    z-index: 200;
-    margin-left: -30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    scroll-snap-stop: unset;
-}
-
-.QuickViewContainer .contentBox{
-    top: 50%;
-    width: 888px;
-    height: 550px;
-    margin: auto;
-    overflow: hidden;
-    padding: 40px ;
-    border: 1px solid #BCE3C9;
-    border-radius: 25px;
-    background-color: #fff;
-    
-}
-
-.QuickViewContainer .contentBox .CloseButton{
-    font-weight: bold;
-    display: flex;
-    justify-content: right;
-}
-
-
-
-.productView .Image1 .InnerImageZoom{
-    width: 400px !important;
-    height: 300px !important;
-    border-radius: 30px ;  
-    object-fit: cover;
-
-}
-
-.productView .Images2{
+.QuickViewContainer {
+  position: fixed;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(50, 48, 48, 0.8);
+  z-index: 200;
+  top: 0;
+  left: 0;
   display: flex;
-  justify-content:space-around;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
 }
 
-.productView .Images2 .SmallImage{
+.QuickViewContainer .contentBox {
+  width: 90%;
+  max-width: 888px;
+  height: auto;
+  max-height: 90vh;
+  margin: auto 20px;
+  overflow-y: auto;
+  padding: 40px;
+  border: 1px solid #bce3c9;
+  border-radius: 25px;
+  background-color: #fff;
+}
+
+.QuickViewContainer .contentBox .CloseButton {
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.productView .Image1 .InnerImageZoom {
+  width: 100% !important;
+  max-width: 400px !important;
+  height: auto !important;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.productView .Images2 {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.productView .Images2 .SmallImage {
   width: 80px !important;
   height: 80px !important;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
-  
 }
 
-.productView .Images2 .SmallImage img{
+.productView .Images2 .SmallImage img {
   border-radius: 10px;
-  width: 80px !important;
-  height: 80px !important;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
   border: 2px solid gray;
   cursor: pointer;
 }
 
-
-.MainTextCol{
-    padding: 0px 10px 10px 15px;
+.MainTextCol {
+  padding: 0px 10px 10px 15px;
 }
 
-.QuickViewContainer .contentBox .TextCol
-{
-    font-family: "Quicksand" , suns-serif;
+.QuickViewContainer .contentBox .TextCol {
+  font-family: "Quicksand", sans-serif;
 }
 
-.QuickViewContainer .contentBox .TextCol h1{
-    width: 80%;
-    font-weight: bold;
+.QuickViewContainer .contentBox .TextCol h1 {
+  width: 80%;
+  font-weight: bold;
 }
 
 .QuickViewContainer .contentBox .TextCol h1:hover {
-    width: 70%;
-    color: gold;
+  width: 70%;
+  color: gold;
 }
 
-.QuickViewContainer .contentBox .TextCol .RatingBox{
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-    height: auto;
+.QuickViewContainer .contentBox .TextCol .RatingBox {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  height: auto;
 }
 
-.QuickViewContainer .contentBox .ButtonBox{
-    display: flex;
-    align-items: center;
+.QuickViewContainer .contentBox .ButtonBox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.QuickViewContainer .contentBox input{
-    width: 60px;
-    height: 40px;
-    padding: 10px;
-    border-color: #3BB77e;
+.QuickViewContainer .contentBox input {
+  width: 60px;
+  height: 40px;
+  padding: 10px;
+  border-color: #3bb77e;
+  border: 1px solid #3bb77e;
 }
 
-.QuickViewContainer .contentBox  .AddCartButton{
-    background-color: #3BB77e;
-    color: #fff;
-    text-transform: capitalize;
-    padding: 10px 20px;
-    margin-left: 50px;
+.QuickViewContainer .contentBox .AddCartButton {
+  background-color: #3bb77e;
+  color: #fff;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
 
+/* Tablet Responsiveness (1024px and below) */
+@media (max-width: 1024px) {
+  .HomeProduct {
+    padding: 0px 20px;
+  }
 
+  .HomeProduct .ProductRow .item {
+    flex: 0 0 calc(33.333% - 10px);
+  }
+
+  .QuickViewContainer .contentBox {
+    padding: 30px;
+    max-width: 750px;
+  }
+
+  .productView .Image1 .InnerImageZoom {
+    max-width: 350px !important;
+  }
+
+  .QuickViewContainer .contentBox .TextCol h1 {
+    width: 100%;
+    font-size: 24px;
+  }
+
+  .QuickViewContainer .contentBox input {
+    width: 50px;
+    height: 35px;
+  }
+}
+
+/* Mobile Responsiveness (768px and below) */
+@media (max-width: 768px) {
+  .HomeProduct {
+    padding: 0px 15px;
+  }
+
+  .Header {
+    flex-direction: column;
+  }
+
+  .HomeProduct .Header .Cat ul {
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .HomeProduct .ProductRow .item {
+    flex: 0 0 calc(50% - 10px);
+    padding: 10px 5px;
+  }
+
+  .QuickViewContainer .contentBox {
+    padding: 25px;
+    max-width: 600px;
+    margin: 20px;
+  }
+
+  .productView .Image1 .InnerImageZoom {
+    max-width: 280px !important;
+  }
+
+  .productView .Images2 {
+    justify-content: center;
+  }
+
+  .productView .Images2 .SmallImage {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .QuickViewContainer .contentBox .TextCol h1 {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .QuickViewContainer .contentBox .ButtonBox {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .QuickViewContainer .contentBox input {
+    width: 100%;
+  }
+
+  .QuickViewContainer .contentBox .AddCartButton {
+    width: 100%;
+  }
+}
+
+/* Small Mobile Responsiveness (576px and below) */
+@media (max-width: 576px) {
+  .HomeProduct {
+    padding: 0px 10px;
+  }
+
+  .HomeProduct .Header .Cat ul li {
+    margin-right: 15px;
+    font-size: 14px;
+  }
+
+  .HomeProduct .ProductRow .item {
+    flex: 0 0 calc(50% - 5px);
+    padding: 8px 3px;
+  }
+
+  .ProductThumb .Badge {
+    width: 65px;
+    height: 25px;
+    font-size: 13px;
+  }
+
+  .ProductThumb .Title {
+    font-size: 16px;
+  }
+
+  .ProductThumb .Price {
+    font-size: 16px;
+  }
+
+  .QuickViewContainer {
+    padding: 0;
+  }
+
+  .QuickViewContainer .contentBox {
+    width: 95%;
+    padding: 20px;
+    max-width: 100%;
+    max-height: 95vh;
+  }
+
+  .productView .Image1 .InnerImageZoom {
+    max-width: 100% !important;
+  }
+
+  .productView .Images2 .SmallImage {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .QuickViewContainer .contentBox .TextCol h1 {
+    font-size: 18px;
+  }
+
+  .MainTextCol {
+    padding: 0;
+  }
+
+  .QuickViewContainer .contentBox input {
+    width: 50px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .QuickViewContainer .contentBox .AddCartButton {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Very Small Phone (375px and below) */
+@media (max-width: 375px) {
+  .HomeProduct .ProductRow .item {
+    flex: 0 0 100%;
+    padding: 8px 0;
+  }
+
+  .ProductThumb .Badge {
+    width: 55px;
+    height: 22px;
+    font-size: 11px;
+  }
+
+  .ProductThumb .Title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .ProductThumb .Price {
+    font-size: 14px;
+  }
+
+  .ProductThumb button {
+    padding: 3px 10px;
+    font-size: 12px;
+  }
+
+  .QuickViewContainer .contentBox {
+    padding: 15px;
+  }
+
+  .QuickViewContainer .contentBox .TextCol h1 {
+    font-size: 16px;
+  }
+
+  .productView .Images2 .SmallImage {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}

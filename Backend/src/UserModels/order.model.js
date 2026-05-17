@@ -17,7 +17,7 @@ const orderSchema = new Schema(
 
     orderDate: {
       type: Date,
-      default: Date.now, // Timestamp for the comment
+      default: Date.now,
     },
 
     status: {
@@ -35,4 +35,4 @@ const orderSchema = new Schema(
   }
 );
 
-export const Order = mongoose.model(" Order", orderSchema);
+export const Order = mongoose.model("Order", orderSchema);
