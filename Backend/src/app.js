@@ -4,69 +4,53 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import { logger } from "./utils/logger.js";
 
-import userRoutes from "./userRoutes/user.routes.js";
-import adminRouter from "./Admin/adminRouter/admin.router.js";
-
 dotenv.config();
 
 const app = express();
 
-// Allowed Origins
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:3000",
-  "https://grocery-frontend.vercel.app",
-];
-
-// CORS Middleware
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("CORS Not Allowed"));
-      }
-    },
-    credentials: true,
+    origin: process.env.CORS_ORIGIN,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
 
-// Handle preflight requests
-app.options("*", cors());
+// app.options("*", cors());
+app.options(/.*/, cors());
 
-// Body Parsers
+// Body parsers
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
 // Cookie Parser
 app.use(cookieParser());
 
-// Static Files
+// Static files
 app.use("/uploads", express.static("uploads"));
 
-// Logger Middleware
+// Request logging middleware
 app.use((req, res, next) => {
   logger.info(`${req.method} ${req.path}`);
   next();
 });
 
-// Routes
+// Routes Import
+import userRoutes from "./userRoutes/user.routes.js";
+import adminRouter from "./Admin/adminRouter/admin.router.js";
+
+// Route Mounting
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/admin", adminRouter);
 
-// Health Check Route
 app.get("/", (req, res) => {
-  res.send("Backend Running Successfully");
+  res.send("🚀 Grocery Backend is Running");
 });
 
 // 404 Handler
 app.use((req, res) => {
+  logger.warn(`Route not found: ${req.method} ${req.path}`);
   res.status(404).json({
     statusCode: 404,
     data: null,
@@ -75,129 +59,24 @@ app.use((req, res) => {
   });
 });
 
-// Global Error Handler
 app.use((err, req, res, next) => {
-  logger.error(err);
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
 
-  res.status(err.statusCode || 500).json({
+  logger.error({
+    statusCode,
+    message,
+    path: req.path,
+    method: req.method,
+    stack: err.stack,
+  });
+
+  res.status(statusCode).json({
+    statusCode,
+    data: null,
+    message,
     success: false,
-    message: err.message || "Internal Server Error",
   });
 });
 
 export { app };
-
-// import express from "express";
-// import cors from "cors";
-// import cookieParser from "cookie-parser";
-// import dotenv from "dotenv";
-// import { logger } from "./utils/logger.js";
-
-// dotenv.config();
-
-// const app = express();
-
-// // CORS Configuration - Support both development and production
-// // const allowedOrigins = [
-// //   process.env.CORS_ORIGIN || "http://localhost:5173",
-// //   "http://localhost:5173",
-// //   "http://localhost:3000",
-// //   "http://127.0.0.1:5173",
-// // ];
-
-// // app.use(
-// //   cors({
-// //     origin: (origin, callback) => {
-// //       if (!origin || allowedOrigins.includes(origin)) {
-// //         callback(null, true);
-// //       } else {
-// //         logger.warn(`CORS blocked: ${origin}`);
-// //         callback(new Error("Not allowed by CORS"));
-// //       }
-// //     },
-// //     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-// //     allowedHeaders: ["Content-Type", "Authorization"],
-// //     credentials: true,
-// //   })
-// // );
-
-// // app.options("*", cors());
-
-// const allowedOrigins = [
-//   "http://localhost:5173",
-//   "http://localhost:3000",
-//   "https://grocery-frontend.vercel.app",
-// ];
-
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("CORS Not Allowed"));
-//     }
-//   },
-//   credentials: true,
-//   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-//   allowedHeaders: ["Content-Type", "Authorization"],
-// };
-
-// app.use(cors(corsOptions));
-
-// // Body parsers
-// app.use(express.json({ limit: "10mb" }));
-// app.use(express.urlencoded({ extended: true, limit: "10mb" }));
-
-// // Cookie Parser
-// app.use(cookieParser());
-
-// // Static files
-// app.use("/uploads", express.static("uploads"));
-
-// // Request logging middleware
-// app.use((req, res, next) => {
-//   logger.info(`${req.method} ${req.path}`);
-//   next();
-// });
-
-// // Routes Import
-// import userRoutes from "./userRoutes/user.routes.js";
-// import adminRouter from "./Admin/adminRouter/admin.router.js";
-
-// // Route Mounting
-// app.use("/api/v1/users", userRoutes);
-// app.use("/api/v1/admin", adminRouter);
-
-// // 404 Handler
-// app.use((req, res) => {
-//   logger.warn(`Route not found: ${req.method} ${req.path}`);
-//   res.status(404).json({
-//     statusCode: 404,
-//     data: null,
-//     message: "Route not found",
-//     success: false,
-//   });
-// });
-
-// // Global Error Handler Middleware
-// app.use((err, req, res, next) => {
-//   const statusCode = err.statusCode || 500;
-//   const message = err.message || "Internal Server Error";
-
-//   logger.error({
-//     statusCode,
-//     message,
-//     path: req.path,
-//     method: req.method,
-//     stack: err.stack,
-//   });
-
-//   res.status(statusCode).json({
-//     statusCode,
-//     data: null,
-//     message,
-//     success: false,
-//   });
-// });
-
-// export { app };
