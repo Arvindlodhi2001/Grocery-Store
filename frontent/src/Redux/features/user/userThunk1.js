@@ -7,6 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 export const signUpUser = createAsyncThunk(
   "auth/signUpUser",
   async (formData, { rejectWithValue }) => {
+    console.log(`${API_URL}/signUp`, formData);
     try {
       const response = await axios.post(`${API_URL}/signUp`, formData);
       Toastify("success", "User created successfully");
