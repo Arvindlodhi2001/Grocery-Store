@@ -1,5 +1,6 @@
-import { lazy } from "react";
-import { useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { Suspense, lazy } from "react";
+
 const Home = lazy(() => import("./Home/Home"));
 const About = lazy(() => import("./About/About"));
 const Listing = lazy(() => import("./Listing/Listing"));
@@ -77,4 +78,3 @@ const IndexRouter = () => {
 };
 
 export default IndexRouter;
-
