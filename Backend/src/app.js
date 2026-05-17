@@ -44,6 +44,10 @@ import adminRouter from "./Admin/adminRouter/admin.router.js";
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/admin", adminRouter);
 
+app.get("/", (req, res) => {
+  res.send("🚀 Grocery Backend is Running");
+});
+
 // 404 Handler
 app.use((req, res) => {
   logger.warn(`Route not found: ${req.method} ${req.path}`);
