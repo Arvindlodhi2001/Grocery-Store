@@ -8,19 +8,35 @@ dotenv.config();
 
 const app = express();
 
+// CORS Configuration - Support both development and production
+const allowedOrigins = [
+  process.env.CORS_ORIGIN || "http://localhost:5173",
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://127.0.0.1:5173",
+];
+
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        logger.warn(`CORS blocked: ${origin}`);
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
 
+// app.options("*", cors());
 app.options(
   "*",
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: allowedOrigins,
     credentials: true,
   })
 );
@@ -49,10 +65,6 @@ import adminRouter from "./Admin/adminRouter/admin.router.js";
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/admin", adminRouter);
 
-app.get("/", (req, res) => {
-  res.send("🚀 Grocery Backend is Running");
-});
-
 // 404 Handler
 app.use((req, res) => {
   logger.warn(`Route not found: ${req.method} ${req.path}`);
@@ -64,6 +76,7 @@ app.use((req, res) => {
   });
 });
 
+// Global Error Handler Middleware
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server Error";
