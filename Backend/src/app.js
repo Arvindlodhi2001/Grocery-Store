@@ -9,30 +9,51 @@ dotenv.config();
 const app = express();
 
 // CORS Configuration - Support both development and production
+// const allowedOrigins = [
+//   process.env.CORS_ORIGIN || "http://localhost:5173",
+//   "http://localhost:5173",
+//   "http://localhost:3000",
+//   "http://127.0.0.1:5173",
+// ];
+
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         logger.warn(`CORS blocked: ${origin}`);
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//   })
+// );
+
+// app.options("*", cors());
+
 const allowedOrigins = [
-  process.env.CORS_ORIGIN || "http://localhost:5173",
   "http://localhost:5173",
   "http://localhost:3000",
-  "http://127.0.0.1:5173",
+  "https://grocery-frontend.vercel.app",
 ];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        logger.warn(`CORS blocked: ${origin}`);
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS Not Allowed"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 
-app.options("*", cors());
+app.use(cors(corsOptions));
 
 // Body parsers
 app.use(express.json({ limit: "10mb" }));

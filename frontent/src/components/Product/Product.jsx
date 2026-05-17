@@ -210,7 +210,6 @@ const Product = () => {
 export default Product;
 
 const ProductCard = (props) => {
-  // const { API_URL } = JSON.parse(localStorage.getItem("user"));
   const API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const dispatch = useDispatch();
