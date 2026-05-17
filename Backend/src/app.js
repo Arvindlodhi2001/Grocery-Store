@@ -32,14 +32,7 @@ app.use(
   })
 );
 
-// app.options("*", cors());
-app.options(
-  "*",
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
-);
+app.options("*", cors());
 
 // Body parsers
 app.use(express.json({ limit: "10mb" }));
