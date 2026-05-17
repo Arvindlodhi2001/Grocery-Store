@@ -6,6 +6,7 @@ import CommentSection from "../Comment/CommentSection";
 
 const ProductDetails = () => {
   // const { id } = useParams(); // Get product ID from URL
+  const API_URL = import.meta.env.VITE_API_URL;
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -14,7 +15,7 @@ const ProductDetails = () => {
       try {
         const response = await axios.get(
           // `localhost:5000/api/v1/users/product/byId/6a095cdf8bb0615b83c9a000`,
-          `http://localhost:5000/api/v1/users/product/byId/6a095cdf8bb0615b83c9a000`,
+          `${API_URL}/product/byId/6a095cdf8bb0615b83c9a000`,
         );
         setProduct(response.data.data);
       } catch (error) {

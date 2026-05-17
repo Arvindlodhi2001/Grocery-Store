@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import Toastify from "../../../Utils/Toastify/Toastify";
-const API_URL = "http://localhost:5000/api/v1/users";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const signUpUser = createAsyncThunk(
   "auth/signUpUser",
@@ -13,10 +14,10 @@ export const signUpUser = createAsyncThunk(
     } catch (error) {
       Toastify("error", "User Signup is failed");
       return rejectWithValue(
-        error.response?.data?.message || "Something went wrong!"
+        error.response?.data?.message || "Something went wrong!",
       );
     }
-  }
+  },
 );
 
 export const signInUser = createAsyncThunk(
@@ -30,10 +31,10 @@ export const signInUser = createAsyncThunk(
     } catch (error) {
       Toastify("error", "User Signin is failed");
       return rejectWithValue(
-        error.response?.data?.message || "Something went wrong!"
+        error.response?.data?.message || "Something went wrong!",
       );
     }
-  }
+  },
 );
 
 export const removeUser = createAsyncThunk(
@@ -46,8 +47,8 @@ export const removeUser = createAsyncThunk(
     } catch (error) {
       Toastify("error", "User removal failed");
       return rejectWithValue(
-        error.response?.data?.message || "Something went wrong!"
+        error.response?.data?.message || "Something went wrong!",
       );
     }
-  }
+  },
 );

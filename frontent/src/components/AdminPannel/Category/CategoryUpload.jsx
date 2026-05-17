@@ -10,6 +10,7 @@ const CategoryUpload = () => {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   // Handle input change
   const handleChange = (e) => {
@@ -42,14 +43,15 @@ const CategoryUpload = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/admin/category/create",
+        `${API_URL}/admin/category/create`,
+        // "http://localhost:5000/api/v1/admin/category/create",
         data,
         // { headers: { "Content-Type": "multipart/form-data" } }
         {
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
 
       alert("Category uploaded successfully!");

@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 import Toastify from "../../Utils/Toastify/Toastify";
 import { useNavigate } from "react-router";
 
-const API_URL = "http://localhost:5000/api/v1/users";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const MyAccount = () => {
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ const MyAccount = () => {
         const { latitude, longitude } = position.coords;
         Toastify("warning", "current location fetch in processing");
         const response = await axios.get(
-          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`,
         );
         setLocationData(response.data.address);
 
@@ -86,9 +86,9 @@ const MyAccount = () => {
 
   const DataProduct = async () => {
     try {
-      const DataRequest = await axios.get("http://localhost:3001/Products");
+      const DataRequest = await axios.get(`${API_URL}/Products`);
       setProducts(DataRequest.data);
-      setFilterData(DataRequest.data); // Initialize FilterData with fetched Products
+      setFilterData(DataRequest.data);
       console.log("Data Fetch Successfully...");
     } catch (error) {
       console.log("Error -- ", error);
@@ -109,25 +109,25 @@ const MyAccount = () => {
       sortedProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price)); // Descending
     } else if (ProductsSortMessage === "Filter By Date - New - Old") {
       sortedProducts.sort(
-        (a, b) => new Date(a.issueDate) - new Date(b.issueDate)
+        (a, b) => new Date(a.issueDate) - new Date(b.issueDate),
       );
     } else if (ProductsSortMessage === "Filter By Date - Old - New") {
       sortedProducts.sort(
-        (a, b) => new Date(b.issueDate) - new Date(a.issueDate)
+        (a, b) => new Date(b.issueDate) - new Date(a.issueDate),
       );
     }
     // Filter based on the status
     if (ProductsSortMessage === "Filter By Status - Shipped") {
       sortedProducts = sortedProducts.filter(
-        (product) => product.status === "Shipped"
+        (product) => product.status === "Shipped",
       );
     } else if (ProductsSortMessage === "Filter By Status - Processing") {
       sortedProducts = sortedProducts.filter(
-        (product) => product.status === "Processing"
+        (product) => product.status === "Processing",
       );
     } else if (ProductsSortMessage === "Filter By Status - Delivered") {
       sortedProducts = sortedProducts.filter(
-        (product) => product.status === "Delivered"
+        (product) => product.status === "Delivered",
       );
     }
     // Search Bar Handel Start
@@ -140,7 +140,7 @@ const MyAccount = () => {
           product.tag.toLowerCase().includes(SearchTerm.toLowerCase()) ||
           product.brand.toLowerCase().includes(SearchTerm.toLowerCase()) ||
           product.ShortDescribe.toLowerCase().includes(
-            SearchTerm.toLowerCase()
+            SearchTerm.toLowerCase(),
           ) ||
           product.id.toLowerCase().includes(SearchTerm.toLowerCase())
         );
@@ -174,20 +174,17 @@ const MyAccount = () => {
       return;
     }
     const confirm = window.confirm(
-      "Are you sure you want to delete your account?"
+      "Are you sure you want to delete your account?",
     );
     if (confirm) {
       try {
-        const response = await axios.delete(
-          "http://localhost:5000/api/v1/users/account/remove",
-          {
-            data: RemoveData, // ✅ Correct way to send data in DELETE request
-            headers: {
-              "Content-Type": "application/json", // ✅ Ensure correct headers
-            },
-            withCredentials: true, // ✅ If using authentication (cookies)
-          }
-        );
+        const response = await axios.delete(`${API_URL}/account/remove`, {
+          data: RemoveData,
+          headers: {
+            "Content-Type": "application/json", // ✅ Ensure correct headers
+          },
+          withCredentials: true, // ✅ If using authentication (cookies)
+        });
 
         console.log("user removed successfully --> ", response);
         alert("Account removed successfully");

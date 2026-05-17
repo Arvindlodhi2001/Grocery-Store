@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import Toastify from "../../../Utils/Toastify/Toastify";
 
-const API_URL = "http://localhost:5000/api/v1/users";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const fetchAllProducts = createAsyncThunk(
   "products/fetchAll",
@@ -13,8 +13,8 @@ export const fetchAllProducts = createAsyncThunk(
     } catch (error) {
       Toastify("error", "Product Fetch Failed");
       return rejectWithValue(
-        error.response?.data?.message || "Product fetch failed"
+        error.response?.data?.message || "Product fetch failed",
       );
     }
-  }
+  },
 );

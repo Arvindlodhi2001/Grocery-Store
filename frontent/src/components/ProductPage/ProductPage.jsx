@@ -8,14 +8,12 @@ import { useParams } from "react-router-dom";
 const ProductPage = () => {
   const { ProductID } = useParams();
   const [product, setProduct] = useState(null);
-  const userConfig = JSON.parse(localStorage.getItem("user"));
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchProductDetail = async () => {
-    console.log(`${userConfig.API_URL}/product/byId/${ProductID}`);
+    console.log(`${API_URL}/product/byId/${ProductID}`);
     try {
-      const response = await axios.get(
-        `${userConfig.API_URL}/product/byId/${ProductID}`,
-      );
+      const response = await axios.get(`${API_URL}/product/byId/${ProductID}`);
       setProduct(response.data.data);
       console.log("Product Fetched Successfully:", response.data.data);
       await Toastify("success", "Product Fetch Successful");

@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
 const Product = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState({
     productName: "Samsung Galaxy S23",
     category: ["67bb6ca97fc255d2d4b7cdc2", "67bb6a2bd2f4da92aabe4d6d"],
@@ -35,7 +36,7 @@ const Product = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/product/all");
+      const response = await axios.get(`${API_URL}/product/all`);
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -49,7 +50,7 @@ const Product = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        await axios.delete(`http://localhost:5000/product/delete/${id}`);
+        await axios.delete(`${API_URL}/product/delete/${id}`);
         alert("Product deleted successfully!");
 
         setProducts(products.filter((product) => product._id !== id)); // Update state
@@ -80,11 +81,11 @@ const Product = () => {
       console.log("formDataToSend", formDataToSend);
 
       await axios.post(
-        "http://localhost:5000/api/v1/admin/product/upload",
+        `${API_URL}/api/v1/admin/product/upload`,
         formDataToSend,
         {
           headers: { "Content-Type": "multipart/form-data" },
-        }
+        },
       );
 
       alert("Product uploaded successfully!");
