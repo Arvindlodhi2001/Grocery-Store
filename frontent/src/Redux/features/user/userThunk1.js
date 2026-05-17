@@ -7,13 +7,18 @@ const API_URL = import.meta.env.VITE_API_URL;
 export const signUpUser = createAsyncThunk(
   "auth/signUpUser",
   async (formData, { rejectWithValue }) => {
-    console.log(`${API_URL}/signUp`, formData);
     try {
-      const response = await axios.post(`${API_URL}/signUp`, formData);
+      console.log(`${API_URL}/signUp`, formData);
+
+      const response = await axios.post(`${API_URL}/signUp`, formData, {
+        withCredentials: true,
+      });
+
       Toastify("success", "User created successfully");
       return response.data;
     } catch (error) {
-      Toastify("error", "User Signup is failed");
+      Toastify("error", "User Signup failed");
+
       return rejectWithValue(
         error.response?.data?.message || "Something went wrong!",
       );
@@ -26,11 +31,19 @@ export const signInUser = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       console.log(`${API_URL}/signIn`, credentials);
-      const response = await axios.post(`${API_URL}/signIn`, credentials);
-      Toastify("success", "User  Signed In successfully");
+
+      const response = await axios.post(`${API_URL}/signIn`, credentials, {
+        withCredentials: true,
+      });
+
+      Toastify("success", "User Signed In successfully");
+
       return response.data;
     } catch (error) {
-      Toastify("error", "User Signin is failed");
+      console.log(error);
+
+      Toastify("error", "User Signin failed");
+
       return rejectWithValue(
         error.response?.data?.message || "Something went wrong!",
       );
@@ -42,11 +55,16 @@ export const removeUser = createAsyncThunk(
   "auth/removeUser",
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${API_URL}/account/remove`, formData);
+      const response = await axios.post(`${API_URL}/account/remove`, formData, {
+        withCredentials: true,
+      });
+
       Toastify("success", "User removed successfully");
+
       return response.data;
     } catch (error) {
       Toastify("error", "User removal failed");
+
       return rejectWithValue(
         error.response?.data?.message || "Something went wrong!!",
       );
